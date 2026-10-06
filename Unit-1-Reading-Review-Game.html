@@ -1,0 +1,535 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Unit 1 Reading Challenge</title><style>
+:root{color-scheme:dark;--bg:#0f172a;--card:#1e293b;--line:#475569;--blue:#38bdf8;--green:#bbf7d0}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#f8fafc;font:17px/1.65 system-ui,sans-serif}main{max-width:1180px;margin:auto;padding:22px}h1,h2,h3{line-height:1.25}h1{font-size:clamp(26px,4vw,38px);margin:0}h2{color:var(--blue);font-size:24px}p{margin:12px 0}button,input{font:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:9px;padding:10px 16px;background:#26374e;color:white}button:hover{border-color:var(--blue)}button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #facc15;outline-offset:3px}button:disabled{cursor:default;opacity:.5}.primary{background:#0369a1;border-color:#38bdf8}.muted{color:#cbd5e1}.tag{display:inline-block;background:#12374b;color:#bae6fd;border:1px solid #277b9d;border-radius:6px;padding:4px 10px;font-size:14px}.top{display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:16px}.card{background:var(--card);border:1px solid #334155;border-radius:14px;padding:22px;margin:18px 0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.level{padding:18px;background:#17263b;border:1px solid var(--line);border-radius:12px}.level h3{margin:8px 0}.level button{width:100%;margin-top:10px}.workspace{display:grid;grid-template-columns:1fr 1fr;border:1px solid #334155;border-radius:12px;overflow:hidden}.panel{padding:25px;background:#152033;max-height:75vh;overflow-y:auto}.right{background:var(--card);border-left:1px solid #334155}.passage p{margin:0 0 23px}.num{font-size:13px;color:var(--blue);margin-right:7px}.options{display:grid;gap:10px;margin:20px 0}.option{width:100%;text-align:left;background:#17263b;display:block}.option.selected{background:#164e63;border:2px solid #67e8f9}.hot{border-style:dashed}.hot.selected{border-style:solid}.feedback{padding:14px;border-radius:9px;margin:16px 0;background:#102c40;border:1px solid #2781a2}.feedback.good{background:#153b2a;border-color:#4ade80}.feedback.retry{background:#442d16;border-color:#fbbf24}.actions{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}.actions button{flex:1}progress{width:100%;height:13px;accent-color:#38bdf8}details{background:#142537;border-radius:8px;padding:12px;margin-top:14px}summary{cursor:pointer;color:#bae6fd}input[type=text]{border:1px solid var(--line);background:#102033;color:white;padding:10px;border-radius:8px;max-width:100%}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;margin:18px 0}td,th{padding:10px;border:1px solid var(--line);text-align:center}th:first-child,td:first-child{text-align:left}input[type=radio]{width:20px;height:20px;accent-color:#38bdf8}footer{font-size:13px;color:#94a3b8;margin:25px 0}label{cursor:pointer}.stats{display:flex;gap:22px;flex-wrap:wrap}.hide{display:none}@media(max-width:800px){.grid{grid-template-columns:1fr}.workspace{grid-template-columns:1fr}.panel{max-height:none}.right{border-left:0;border-top:1px solid #334155}main{padding:12px}.panel{padding:20px}}@media print{body{background:white;color:black}button,.top,footer{display:none}.card{border:1px solid #ccc;background:white}.muted,h2{color:black}}
+</style></head><body><main><header class="top"><div><span class="tag">GRADE 6 • UNIT 1</span><h1>Reading Challenge</h1></div><button onclick="showMap()">Level map</button></header><div id="app"></div><footer>Original classroom practice • Responses stay in this browser. Download your report to submit it. This game does not send results to your teacher automatically.</footer></main><script>
+const LEVELS=[
+  {
+    "title": "The Map I Could Not Read",
+    "genre": "Personal narrative",
+    "parts": [
+      "At the library, I could identify almost every book by the color of its spine. The words on the covers, however, were a maze. When my younger brother read a sign aloud, I pretended to be interested in the rain outside.",
+      "Ms. Vale asked me to help make a map of the library. I stared at the blank paper. Last autumn, a classmate had laughed when I read “shelf” as “self.” Since then, I had found a reason to leave whenever someone asked me to read.",
+      "“We can start with pictures,” Ms. Vale said. I drew a sun for the windows and a cup for the water fountain. Then she wrote a word beside each drawing. I traced the letters and whispered their sounds. We worked on the map a little each afternoon.",
+      "Two weeks later, a visitor asked where the biographies were. My hands shook, but I read the label on our map and led him to the right shelf. He thanked me as though I had done something ordinary.",
+      "I still stumbled over new words. Yet the next afternoon, I stayed when Ms. Vale opened a book. The library had not become smaller; my courage had become larger."
+    ],
+    "questions": [
+      {
+        "skill": "Central idea",
+        "code": "ELA.6.R.2.2",
+        "type": "mc",
+        "prompt": "Which statement best expresses the central idea developed throughout this personal narrative?",
+        "options": [
+          "A library map must use pictures instead of words.",
+          "Patient support and steady practice help the narrator face a reading difficulty.",
+          "Visitors depend on children to find books.",
+          "Learning to read removes every difficulty immediately."
+        ],
+        "answer": [
+          1
+        ],
+        "explain": "The narrative moves from hiding a difficulty to practicing with support and choosing to keep learning. The ending makes clear that challenges remain.",
+        "hint": "Find the idea connecting the beginning, the practice, and the ending."
+      },
+      {
+        "skill": "Supporting evidence",
+        "code": "ELA.6.R.2.2",
+        "type": "hot",
+        "prompt": "Select TWO sentences that best support the central idea that support and practice help the narrator face a reading difficulty.",
+        "options": [
+          "At the library, I could identify almost every book by the color of its spine.",
+          "We worked on the map a little each afternoon.",
+          "My hands shook, but I read the label on our map and led him to the right shelf.",
+          "He thanked me as though I had done something ordinary."
+        ],
+        "answer": [
+          1,
+          2
+        ],
+        "explain": "Regular practice and the narrator’s successful use of the map directly show growth. Spine colors and the visitor’s thanks are less direct evidence of the learning process.",
+        "hint": "Choose one sentence about practice and one about what that practice makes possible."
+      },
+      {
+        "skill": "Narration",
+        "code": "ELA.6.R.1.3",
+        "type": "mc",
+        "prompt": "How does the first-person narration shape the reader’s understanding?",
+        "options": [
+          "It reveals the thoughts of every person in the library.",
+          "It presents only facts about organizing a library.",
+          "It reveals the narrator’s private embarrassment and growing confidence.",
+          "It shows that Ms. Vale narrates the experience."
+        ],
+        "answer": [
+          2
+        ],
+        "explain": "The narrator tells personal memories, feelings, and choices. A first-person narrator does not automatically know other characters’ private thoughts.",
+        "hint": "Ask whose inner feelings the reader can directly know."
+      },
+      {
+        "skill": "Dictionary meaning",
+        "code": "ELA.6.V.1.3",
+        "type": "mc",
+        "prompt": "In paragraph 4, which dictionary meaning of “label” fits the sentence?",
+        "options": [
+          "A short description attached to identify something",
+          "To judge someone unfairly",
+          "A company that records music",
+          "To assign blame"
+        ],
+        "answer": [
+          0
+        ],
+        "explain": "The label on the map identifies the biographies section. Read the whole sentence before choosing among dictionary meanings.",
+        "hint": "Replace the word with each meaning and test it in the sentence."
+      }
+    ]
+  },
+  {
+    "title": "After the Rain",
+    "genre": "Poem: two speakers",
+    "parts": [
+      "<b>Speaker 1: The student</b><br>Drip, drip, the gutters tap.<br>I check the clock beside my map.<br>Our trip is gone; the sky is gray.<br>Rain, rain, you stole my day.",
+      "<b>Speaker 2: The garden</b><br>Drip, drip, the gutters sing.<br>The thirsty roots drink everything.<br>Rain, rain, stay here a while.<br>You wake each leaf; you make me smile.",
+      "<b>Speaker 1: The student</b><br>I set my map upon the sill.<br>The leaves shine bright; the rain falls still.<br>I watch a sparrow rinse its wings.<br>Perhaps a canceled trip brings things."
+    ],
+    "questions": [
+      {
+        "skill": "Poem structure",
+        "code": "ELA.6.R.1.4",
+        "type": "mc",
+        "prompt": "How does the second stanza contribute to the poem’s meaning?",
+        "options": [
+          "It provides a second response to the same rain, preparing for the student’s changed outlook.",
+          "It proves that the garden and the student have the same opinion from the start.",
+          "It explains exactly where the canceled trip would have gone.",
+          "It interrupts the poem with facts unrelated to the rain."
+        ],
+        "answer": [
+          0
+        ],
+        "explain": "The garden welcomes what the student resents. This contrasting perspective prepares for the student to notice benefits in the final stanza.",
+        "hint": "Compare the speakers’ reactions to the same event."
+      },
+      {
+        "skill": "Sound and repetition",
+        "code": "ELA.6.R.3.1",
+        "type": "multi",
+        "prompt": "Select TWO statements that accurately explain the sound techniques.",
+        "options": [
+          "“Drip, drip” imitates a sound and helps readers hear the rain.",
+          "Repeating “Rain, rain” highlights the speakers’ different attitudes toward the same event.",
+          "“Drip, drip” proves that the poem takes place during a hurricane.",
+          "The repeated words show that the student never changes.",
+          "Every repeated word is an example of a simile."
+        ],
+        "answer": [
+          0,
+          1
+        ],
+        "explain": "Onomatopoeia imitates sound. Repetition can emphasize a subject while the surrounding words reveal contrasting attitudes.",
+        "hint": "Separate what the words sound like from what their repetition emphasizes."
+      },
+      {
+        "skill": "Figurative language and tone",
+        "code": "ELA.6.R.3.1",
+        "type": "mc",
+        "prompt": "How does “The thirsty roots drink everything” affect the second stanza?",
+        "options": [
+          "It creates an angry tone by blaming the roots.",
+          "It treats the roots as eager drinkers, creating an appreciative tone toward rain.",
+          "It establishes that the garden is indoors.",
+          "It compares the student to a thirsty root using “like.”"
+        ],
+        "answer": [
+          1
+        ],
+        "explain": "The roots are described as thirsty drinkers. This personification presents the rain as welcome nourishment.",
+        "hint": "Identify the human quality, then connect it to the speaker’s attitude."
+      },
+      {
+        "skill": "Speakers’ perspectives",
+        "code": "ELA.6.R.1.3",
+        "type": "match",
+        "prompt": "For each statement, choose the speaker or speakers it accurately describes.",
+        "options": [
+          "Student only",
+          "Garden only",
+          "Both"
+        ],
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "explain": "The student initially sees rain as a loss; the garden welcomes it. Both speakers describe the same rainfall, although their responses differ.",
+        "hint": "Use each speaker’s own lines rather than assuming the speakers agree.",
+        "rows": [
+          "Initially feels disappointed about the rain",
+          "Initially welcomes the rain",
+          "Responds to the rain in the poem"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "The Last Delivery",
+    "genre": "Science-fiction narrative",
+    "parts": [
+      "Every evening, a silver delivery drone hummed above the neighborhood. On its screen, an arrow pointed to each doorstep. Nia had built the route herself and was proud that the drone finished before sunset. Still, the porches had become silent. Neighbors no longer lingered while carrying groceries home.",
+      "At the final house, the drone displayed ROUTE BLOCKED. A fallen branch covered the landing pad. Nia’s assignment was simple: finish the delivery before the battery ran out. She gripped the handles of a heavy grocery bag and started up the hill.",
+      "The smell of warm bread drifting from the house brought back an afternoon from years earlier. As a little girl, Nia had dropped a bag of oranges outside this same door. Mr. Chen had helped her gather every rolling orange, then invited her mother inside for bread. Back then, a delivery had sometimes become a visit.",
+      "The memory faded as Nia reached the porch. “I had almost forgotten what footsteps sounded like,” Mr. Chen said. Nia offered him the bag and noticed two cups on his table. She stayed long enough to hear about the garden he could no longer climb down to tend.",
+      "That night, Nia opened her route planner. She was dissatisfied with a system that saved minutes but erased meetings. Instead of deleting the drone program, she added a weekly porch visit to every route. The next morning, she tested the new schedule beside a mug of bread-scented tea."
+    ],
+    "questions": [
+      {
+        "skill": "Flashback and plot",
+        "code": "ELA.6.R.1.1",
+        "type": "mc",
+        "prompt": "Why does the author include the flashback in paragraph 3?",
+        "options": [
+          "To show that Nia has always disliked inventions",
+          "To explain the drone’s battery design",
+          "To reveal a past connection that helps Nia recognize what efficient deliveries have lost",
+          "To prove that the branch fell years ago"
+        ],
+        "answer": [
+          2
+        ],
+        "explain": "The memory shows how an earlier delivery created a human connection. It helps explain Nia’s decision to include visits in the route.",
+        "hint": "Connect the remembered event to Nia’s choice at the end."
+      },
+      {
+        "skill": "Imagery",
+        "code": "ELA.6.R.3.1",
+        "type": "hot",
+        "prompt": "Select ONE phrase that uses sensory imagery to trigger Nia’s memory.",
+        "options": [
+          "an arrow pointed to each doorstep",
+          "finish the delivery before the battery ran out",
+          "The smell of warm bread drifting from the house",
+          "she added a weekly porch visit to every route"
+        ],
+        "answer": [
+          2
+        ],
+        "explain": "The smell of bread appeals to the sense of smell and leads directly into the remembered afternoon.",
+        "hint": "Look for a detail perceived through a sense that begins the flashback."
+      },
+      {
+        "skill": "Morphology",
+        "code": "ELA.6.V.1.2",
+        "type": "mc",
+        "prompt": "The prefix dis- can mean “not.” What does “dissatisfied” mean in paragraph 5?",
+        "options": [
+          "Not pleased with the result",
+          "Able to finish very quickly",
+          "Completely unable to remember",
+          "Interested in building a garden"
+        ],
+        "answer": [
+          0
+        ],
+        "explain": "Dis- combines with satisfied to mean not satisfied or not pleased. Nia wants to improve the route’s social effects.",
+        "hint": "Break the word into prefix and base, then check the meaning against Nia’s action."
+      },
+      {
+        "skill": "Conflict and prediction",
+        "code": "ELA.6.R.1.1",
+        "type": "multi",
+        "prompt": "Select TWO predictions best supported by Nia’s final decision.",
+        "options": [
+          "Nia will try to preserve the convenience of drones while adding human contact.",
+          "Some future deliveries may include time for conversations.",
+          "Nia will destroy all the neighborhood’s machines.",
+          "Mr. Chen will stop accepting groceries forever.",
+          "The new schedule will guarantee that every battery lasts longer."
+        ],
+        "answer": [
+          0,
+          1
+        ],
+        "explain": "Nia keeps the program but adds visits. Both predictions follow from that compromise; the passage does not support destroying machines or guaranteeing battery life.",
+        "hint": "Base a prediction on the character’s actual solution, not just what could happen in this genre."
+      }
+    ]
+  },
+  {
+    "title": "A Roof That Works",
+    "genre": "Informational article",
+    "parts": [
+      "<b>A place to grow</b><br>At Bay Street School, a once-empty roof now holds a learning garden. Six wide planters rest on protective trays. Students use this small space for science lessons, observation, and experiments. The project shows that an unused part of a building can become a useful learning space when it is carefully planned.",
+      "<b>Planning before planting</b><br>Before planting began, a building specialist checked how much weight the roof could safely support. Teachers then chose lightweight containers and established a watering schedule. A marked walking path keeps students away from the roof’s edges. The garden was designed around the building’s limits.",
+      "<b>Learning from measurements</b><br>During one class experiment, students compared two planters of the same herb. One received an extra hour of shade each day. Students measured growth, recorded soil moisture, and changed only the amount of shade. Their notes became evidence for a discussion about fair tests.",
+      "<b>Work that continues</b><br>The roof garden needs attention beyond planting day. A class checks drains for loose leaves, records plant health, and replaces damaged labels. These jobs make the garden a shared responsibility. The school has shown that a small outdoor space can support lasting lessons when planning and care continue."
+    ],
+    "questions": [
+      {
+        "skill": "Central idea: Part A",
+        "code": "ELA.6.R.2.2",
+        "type": "mc",
+        "prompt": "Part A. Which statement best expresses the central idea of the article?",
+        "options": [
+          "Every roof should be filled with heavy planters.",
+          "Gardening removes the need for classroom science lessons.",
+          "Careful planning and continued care can turn unused space into a valuable learning area.",
+          "Students must grow herbs to learn how shade works."
+        ],
+        "answer": [
+          2
+        ],
+        "explain": "Every section develops either the garden’s learning value or the planning and care that make it possible.",
+        "hint": "Choose an idea broad enough to connect all four sections.",
+        "pair": "roof"
+      },
+      {
+        "skill": "Evidence: Part B",
+        "code": "ELA.6.R.2.2",
+        "type": "hot",
+        "prompt": "Part B. Select ONE sentence that best supports the answer to Part A.",
+        "options": [
+          "Six wide planters rest on protective trays.",
+          "The school has shown that a small outdoor space can support lasting lessons when planning and care continue.",
+          "One received an extra hour of shade each day.",
+          "A marked walking path keeps students away from the roof’s edges."
+        ],
+        "answer": [
+          1
+        ],
+        "explain": "The closing sentence brings together the learning benefits and the need for continuing planning and care. The other sentences illustrate narrower details.",
+        "hint": "Find the sentence that links both the learning benefit and the conditions that support it.",
+        "pair": "roof"
+      },
+      {
+        "skill": "Section contribution",
+        "code": "ELA.6.R.2.1",
+        "type": "mc",
+        "prompt": "How does “Planning before planting” develop the article’s central idea?",
+        "options": [
+          "It explains the safety and design choices needed to create the learning space.",
+          "It argues that the garden should be closed immediately.",
+          "It lists the results of the shade experiment.",
+          "It describes a problem that the teachers refused to address."
+        ],
+        "answer": [
+          0
+        ],
+        "explain": "The section supplies concrete design choices that show why careful planning matters to the garden’s success.",
+        "hint": "Ask what this section adds that the other sections do not."
+      },
+      {
+        "skill": "Context clues",
+        "code": "ELA.6.V.1.3",
+        "type": "mc",
+        "prompt": "What does “established” mean in paragraph 2?",
+        "options": [
+          "Forgot",
+          "Set up",
+          "Argued against",
+          "Measured the weight of"
+        ],
+        "answer": [
+          1
+        ],
+        "explain": "The teachers set up a watering schedule as part of planning. Nearby actions such as choosing containers help establish this meaning.",
+        "hint": "Substitute each choice into “teachers … a watering schedule.”"
+      }
+    ]
+  },
+  {
+    "title": "The Empty Chair",
+    "genre": "Realistic fiction",
+    "parts": [
+      "When the debate club announced partners, Eli smiled until he heard Mara’s name beside his. Mara had missed two meetings. Eli pictured himself writing every argument while she disappeared again. He pushed the empty chair beside him closer to the wall.",
+      "Mara arrived carrying a folder of handwritten notes. “The bus from my grandmother’s apartment comes late,” she said. Eli glanced at the folder but kept his own notes turned facedown. Outside, thunder rolled, and the rain slapped the classroom windows.",
+      "The storm delayed the late bus. With no way to leave yet, Eli and Mara began reading their evidence together. Mara found a weakness in his strongest claim: the survey included only members of their club. Eli checked the source and realized she was right.",
+      "They replaced the survey with a broader study and practiced their responses. When Mara stumbled over a phrase, Eli waited instead of taking over. When Eli lost his place, she pointed to the line. The chair that had stood against the wall now sat beside his.",
+      "The next day, they did not win every round. But after the final debate, Eli slid a new research question across the table to Mara. “Want to work on this one together?” he asked. She pulled her chair closer."
+    ],
+    "questions": [
+      {
+        "skill": "Setting and conflict",
+        "code": "ELA.6.R.1.1",
+        "type": "mc",
+        "prompt": "How does the storm affect the development of the story?",
+        "options": [
+          "It forces the club to cancel every debate.",
+          "It creates time for Eli and Mara to work together and revise Eli’s assumptions.",
+          "It causes Mara to lose her notes.",
+          "It proves that Eli’s first judgment is accurate."
+        ],
+        "answer": [
+          1
+        ],
+        "explain": "The delayed bus keeps them together. Their work during that delay gives Eli evidence that Mara is a valuable partner.",
+        "hint": "Trace what the storm causes and what changes during that time."
+      },
+      {
+        "skill": "Character change",
+        "code": "ELA.6.R.1.1",
+        "type": "hot",
+        "prompt": "Select TWO sentences that best show Eli changing from distrust to cooperation.",
+        "options": [
+          "He pushed the empty chair beside him closer to the wall.",
+          "Eli pictured himself writing every argument while she disappeared again.",
+          "When Mara stumbled over a phrase, Eli waited instead of taking over.",
+          "“Want to work on this one together?” he asked."
+        ],
+        "answer": [
+          2,
+          3
+        ],
+        "explain": "Waiting respectfully and inviting another partnership show changed behavior. The other options show his initial distrust.",
+        "hint": "Choose actions near the end that contrast with his early behavior."
+      },
+      {
+        "skill": "Implied theme",
+        "code": "ELA.6.R.1.2",
+        "type": "mc",
+        "prompt": "Which theme is developed through Eli’s change?",
+        "options": [
+          "Judging others too quickly can prevent useful partnerships.",
+          "Good partners always win every competition.",
+          "Rainy days are the only time people learn.",
+          "Research works best when no one questions a claim."
+        ],
+        "answer": [
+          0
+        ],
+        "explain": "Eli’s judgment changes when he listens and works with Mara. Their partnership improves even though they do not win every round.",
+        "hint": "State a general lesson supported by the conflict and its resolution; avoid an absolute claim."
+      },
+      {
+        "skill": "Symbolism",
+        "code": "ELA.6.R.3.1",
+        "type": "mc",
+        "prompt": "How does the changing position of the chair contribute to the story’s meaning?",
+        "options": [
+          "It represents Eli’s movement from excluding Mara to welcoming her as a partner.",
+          "It shows that the classroom becomes larger.",
+          "It explains why the bus runs late.",
+          "It proves that furniture matters more than research."
+        ],
+        "answer": [
+          0
+        ],
+        "explain": "The chair moves from the wall to Eli’s side as his attitude changes. That repeated object represents their changing relationship.",
+        "hint": "Compare where the chair is at the beginning and end, and connect it to Eli’s behavior."
+      }
+    ]
+  },
+  {
+    "title": "Small Actions, Shared Spaces",
+    "genre": "Paired texts",
+    "parts": [
+      "<b>Text 1: The Corner Table — personal narrative</b><br>On Saturday, I found our neighborhood exchange table buried under wet cardboard. I almost walked past. One person could not fix the whole block, I told myself. Then I remembered how someone had left a puzzle there for my little sister last winter. I moved the soggy boxes aside and wiped the tabletop. A neighbor brought a dry cloth; another sorted the books. By noon, three families had stopped to trade things. I had not repaired the whole block. I had made one place usable again, and others had helped.",
+      "<b>Text 2: Keeping an Exchange Table Useful — informational text</b><br>A neighborhood exchange table lets residents leave useful items and take things they need. But simply placing a table outdoors does not keep it useful. Clear labels help people separate books, toys, and household supplies. A cover protects donated items from rain. Regular checks remove damaged materials before they discourage visitors. When several neighbors share these small jobs, the table remains inviting without placing all the work on one person."
+    ],
+    "questions": [
+      {
+        "skill": "Summary",
+        "code": "ELA.6.R.3.2",
+        "type": "mc",
+        "prompt": "Which is the best summary of Text 1?",
+        "options": [
+          "A narrator sees wet boxes, remembers a puzzle, and watches three families.",
+          "A narrator decides to restore a neglected exchange table, and neighbors join the effort to make it useful again.",
+          "A narrator repairs every problem in the neighborhood by working alone.",
+          "A narrator is angry that someone left books outside and decides to remove the table."
+        ],
+        "answer": [
+          1
+        ],
+        "explain": "A strong summary includes the main problem, the important action, and the outcome without focusing on small details or adding claims.",
+        "hint": "Use problem → action → outcome. Leave out minor details."
+      },
+      {
+        "skill": "Paraphrasing",
+        "code": "ELA.6.R.3.2",
+        "type": "mc",
+        "prompt": "Which best paraphrases the final sentence of Text 2?",
+        "options": [
+          "Shared small responsibilities keep the table welcoming and prevent one neighbor from doing everything.",
+          "Neighbors should take turns carrying the table to a different block.",
+          "Only one person should be responsible for making the table attractive.",
+          "Sharing a table means that every neighbor must bring the same item."
+        ],
+        "answer": [
+          0
+        ],
+        "explain": "This choice restates both parts of the original idea: shared maintenance and a reduced burden on one person. A paraphrase keeps the meaning while changing the wording.",
+        "hint": "Keep every important idea in the sentence without adding new information."
+      },
+      {
+        "skill": "Informational evidence",
+        "code": "ELA.6.R.2.2",
+        "type": "hot",
+        "prompt": "Select TWO sentences from Text 2 that give specific examples of maintaining the exchange table.",
+        "options": [
+          "A neighborhood exchange table lets residents leave useful items and take things they need.",
+          "Clear labels help people separate books, toys, and household supplies.",
+          "A cover protects donated items from rain.",
+          "But simply placing a table outdoors does not keep it useful."
+        ],
+        "answer": [
+          1,
+          2
+        ],
+        "explain": "Labels and a cover are concrete maintenance actions. The other sentences explain the purpose or introduce the need for care.",
+        "hint": "Look for specific actions or tools, rather than a general introduction."
+      },
+      {
+        "skill": "Summary versus paraphrase",
+        "code": "ELA.6.R.3.2",
+        "type": "match",
+        "prompt": "For each description, choose the reading skill it describes.",
+        "options": [
+          "Summary",
+          "Paraphrase"
+        ],
+        "answer": [
+          0,
+          1,
+          0
+        ],
+        "explain": "A summary condenses the main points of a whole text. A paraphrase restates a particular passage while preserving its important meaning and detail.",
+        "hint": "Ask whether the task condenses the whole text or restates a specific portion.",
+        "rows": [
+          "Briefly states Text 1’s problem, main action, and outcome",
+          "Restates one sentence from Text 2 in new wording",
+          "Leaves out minor details to give the whole narrative’s main points"
+        ]
+      }
+    ]
+  }
+];
+const KEY='unit1-reading-challenge-v1';
+let state={name:'',results:{}};try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&typeof s.results==='object')state=s}catch(e){}
+let current=0,index=0,choice=[],message='',status='';
+const app=document.getElementById('app');
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const key=(l,i)=>l+'-'+i;
+const result=(l,i)=>state.results[key(l,i)];
+const done=l=>LEVELS[l].questions.every((_,i)=>result(l,i)?.passed);
+const total=()=>Object.values(state.results).filter(r=>r.passed).length;
+const points=()=>Object.values(state.results).reduce((s,r)=>s+(r.points||0),0);
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}};
+function showMap(){app.innerHTML=`<section class="card"><h2>Your mission</h2><p>Read closely, interpret the author’s choices, and support your thinking with evidence. Complete six levels using single-select, multiselect, selectable hot text, matching tables, and a two-part evidence question.</p><label>Student name <input type="text" id="name" value="${esc(state.name)}" placeholder="Enter your name" oninput="state.name=this.value;save()"></label><div class="stats"><p><b>${total()} / 24</b> questions mastered</p><p><b>${points()} / 240</b> points</p><p><b>${LEVELS.filter((_,l)=>done(l)).length} / 6</b> badges</p></div><progress max="24" value="${total()}" aria-label="Questions mastered"></progress><p class="muted">Play in order: read the passage, answer each question, use feedback to revise, and finish the level before moving on. Earn 10 points for a correct first try or 5 after a retry. You can revisit completed questions.</p></section><section class="grid">${LEVELS.map((l,n)=>{let unlocked=n===0||done(n-1);return `<div class="level"><span class="tag">LEVEL ${n+1} ${done(n)?'• BADGE EARNED':''}</span><h3>${esc(l.title)}</h3><p class="muted">${esc(l.genre)}</p><p>${l.questions.filter((_,i)=>result(n,i)?.passed).length} / 4 mastered</p><button ${unlocked?'':'disabled'} onclick="openLevel(${n})">${done(n)?'Revisit level':unlocked?'Enter level':'Finish the previous level'}</button></div>`}).join('')}</section><section class="card"><h2>Your student report</h2><p>Download your progress at any time. After all six levels, your report includes the six badges, your first-try accuracy, points, and practice attempts.</p><button class="primary" onclick="downloadReport()">Download student report</button><button onclick="resetGame()">Start a new student session</button><div id="reset"></div></section>`;}
+function openLevel(l){current=l;index=0;loadQuestion()}
+function loadQuestion(){let r=result(current,index);choice=r?.choice?.slice()||[];message=r?.passed?'You mastered this question. Continue when ready.':'';status=r?.passed?'good':'';render()}
+function select(n){let q=LEVELS[current].questions[index];if(result(current,index)?.passed)return;if(q.answer.length>1&&q.type!=='match'){choice=choice.includes(n)?choice.filter(x=>x!==n):[...choice,n]}else{choice=[n]}message='';status='';render()}
+function selectRow(row,n){if(result(current,index)?.passed)return;choice[row]=n;message='';status='';render()}
+function valid(q,c){return q.type==='match'?q.rows.every((_,i)=>Number.isInteger(c[i])):c.length===q.answer.length}
+function same(q,c){if(!valid(q,c))return false;return q.type==='match'?q.answer.every((v,i)=>c[i]===v):[...c].sort((a,b)=>a-b).join(',')===[...q.answer].sort((a,b)=>a-b).join(',')}
+function grade(){let q=LEVELS[current].questions[index],id=key(current,index),r=state.results[id];if(r?.passed)return;if(!valid(q,choice)){message=q.type==='match'?'Choose one response for every row.':`Select exactly ${q.answer.length} ${q.answer.length===1?'response':'responses'} before checking.`;status='retry';render();return}let correct=same(q,choice);if(!r)r=state.results[id]={attempts:0,firstCorrect:correct,firstChoice:choice.slice(),points:0};r.attempts++;r.choice=choice.slice();r.passed=correct;if(correct){r.points=r.attempts===1?10:5;message='Correct! '+q.explain;status='good'}else{message='Try again. '+q.hint;status='retry'}save();render()}
+function render(){let l=LEVELS[current],q=l.questions[index],passed=result(current,index)?.passed;let type={mc:'Single-select',multi:'Multiselect',hot:'Selectable hot text',match:'Matching table'}[q.type];let opts=q.type==='match'?`<div class="tablewrap"><table><thead><tr><th scope="col">Statement</th>${q.options.map(x=>`<th scope="col">${esc(x)}</th>`).join('')}</tr></thead><tbody>${q.rows.map((row,r)=>`<tr><th scope="row">${esc(row)}</th>${q.options.map((opt,n)=>`<td><label><input aria-label="${esc(row+' — '+opt)}" type="radio" name="row${r}" ${choice[r]===n?'checked':''} ${passed?'disabled':''} onchange="selectRow(${r},${n})"></label></td>`).join('')}</tr>`).join('')}</tbody></table></div>`:`<div class="options">${q.options.map((s,n)=>`<button class="option ${q.type==='hot'?'hot':''} ${choice.includes(n)?'selected':''}" aria-pressed="${choice.includes(n)}" ${passed?'disabled':''} onclick="select(${n})">${q.type==='hot'?'':String.fromCharCode(65+n)+'. '}${esc(s)}</button>`).join('')}</div>`;
+app.innerHTML=`<div class="top"><span class="tag">LEVEL ${current+1} • QUESTION ${index+1} OF 4</span><span>${points()} points • ${total()}/24 mastered</span></div><div class="workspace"><article class="panel passage"><p class="muted">${esc(l.genre)}</p><h2>${esc(l.title)}</h2>${l.parts.map((p,n)=>`<p><span class="num">[${n+1}]</span>${p}</p>`).join('')}</article><section class="panel right"><span class="tag">${type}${q.pair?' • TWO-PART EVIDENCE QUESTION':''}</span><h2>${esc(q.skill)}</h2><p class="muted">${esc(q.code)}</p><h3>${esc(q.prompt)}</h3>${q.type==='hot'?'<p class="muted">Select the passage excerpt or excerpts below. Tap again to remove a selection.</p>':''}${q.pair?'<p class="muted">Part A asks for an interpretation. Part B asks for the evidence supporting it.</p>':''}${opts}<button class="primary" onclick="grade()" ${passed?'disabled':''}>Check response</button><div aria-live="polite" aria-atomic="true">${message?`<div class="feedback ${status}">${esc(message)}</div>`:''}</div><details><summary>Need a strategy?</summary><p>${esc(q.hint)}</p></details><div class="actions"><button onclick="previous()" ${index===0?'disabled':''}>Previous</button><button class="primary" onclick="next()" ${passed?'':'disabled'}>${index===3?'Finish level':'Next question'}</button></div></section></div>`;}
+function previous(){if(index>0){index--;loadQuestion()}}
+function next(){if(!result(current,index)?.passed)return;if(index<3){index++;loadQuestion()}else{app.innerHTML=`<section class="card"><span class="tag">BADGE EARNED</span><h2>Level ${current+1} mastered!</h2><p>You completed ${esc(LEVELS[current].title)}. ${total()===24?'All six badges are yours! Download your report to share your work.':'Keep building your reading skills in the next level.'}</p><div class="actions">${current<5?`<button class="primary" onclick="openLevel(${current+1})">Play next level</button>`:'<button class="primary" onclick="downloadReport()">Download completion report</button>'}<button onclick="showMap()">Return to map</button></div></section>`}}
+function resetGame(){document.getElementById('reset').innerHTML='<div class="feedback retry">Starting a new session clears this browser’s current progress. Download your report first if you need it. <div class="actions"><button onclick="confirmReset()">Clear progress and start</button><button onclick="showMap()">Keep current session</button></div></div>'}
+function confirmReset(){state={name:'',results:{}};save();showMap()}
+function answerText(q,c){if(!c)return 'Not attempted';if(q.type==='match')return q.rows.map((row,r)=>row+': '+(q.options[c[r]]||'No choice')).join(' | ');return c.map(n=>q.options[n]).join(' | ')}
+function reportText(){let rs=Object.values(state.results),first=rs.filter(r=>r.firstCorrect).length;let out=['UNIT 1 READING CHALLENGE — STUDENT REPORT','Student: '+(state.name||'Name not entered'),'Date: '+new Date().toLocaleString(),'Status: '+(total()===24?'Complete':'In progress'),'Questions mastered: '+total()+'/24','First-try accuracy: '+first+'/'+rs.length+' attempted questions','Points: '+points()+'/240','Badges: '+LEVELS.filter((_,l)=>done(l)).length+'/6',''];LEVELS.forEach((l,n)=>{out.push('LEVEL '+(n+1)+': '+l.title+' — '+(done(n)?'Badge earned':'In progress'));l.questions.forEach((q,i)=>{let r=result(n,i);out.push('  '+(i+1)+'. '+q.skill+' ('+q.code+')','     '+q.prompt,'     First response: '+answerText(q,r?.firstChoice),'     Current response: '+answerText(q,r?.choice),'     '+(r?`Attempts: ${r.attempts} | First try: ${r.firstCorrect?'Correct':'Needs practice'} | ${r.passed?'Mastered':'Not yet mastered'} | Points: ${r.points}`:'Not attempted'))});out.push('')});out.push('Classroom practice report. Points are game rewards, not an official assessment score.');return out.join('\n')}
+function downloadReport(){const blob=new Blob([reportText()],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='Unit-1-Reading-Report-'+(state.name||'Student').replace(/[^a-z0-9_-]/gi,'-')+'.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+showMap();
+</script></body></html>
